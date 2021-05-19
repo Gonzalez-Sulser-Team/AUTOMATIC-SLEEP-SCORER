@@ -1,0 +1,54 @@
+READ ME - MATLAB CHECK-CHOOSE and optional SWDs detection
+---------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------
+IMPORTANT NOTE TO USE THE MATLAB SCRIPTS INCLUDED 
+
+1) MAKE SURE YOU HAVE:
+a) chronux_2_11 package (downloadable at http://chronux.org/)
+b) The Signal Processing Toolbox (can be enabled on On the main command interface, you can use Add-Ons -> Get Add-Ons, and use the 
+Add-On Explorer to find the Signal Processing Toolbox). Free for student/academic licence.
+c) All Matlab included toolboxes selected to be used (add to path full toolbox folder with subfolders).
+
+2) THE SWDs ANALYSIS INCLUDED IN THIS FOLDER IS SET TO BE USED ONLY WITH .dat FILES OBTAINES BY TAINITEC WIRELESS SYSTEM. 
+FOR SWDs AUTODETECTION ON OPEN EPHYS FILES CHECK ON https://github.com/Gonzalez-Sulser-Team/SWD-Automatic-Identification
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CONTEXT:
+- The script will allow you to obtain a .csv file with one selected EEG and one selected EMG channel to run the automatic sleep scorer 
+on R-Studio.
+- Additionally a prompt window will ask you if you would like to run the automatic SWDs (abscence-like seizures) detection on the selected
+EEG channel.
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+WARNINGS:
+- Make sure data folders and names are correctly formated.
+- The main parsing script to open the .dat file was provided by TAINITEC (https://bitbucket.org/tainitec/data_parsing_samples/src/master/matlab/)
+- This particular version is set at a sampling rate of 250.4 Hz, to comply with specifications of data obtained through 
+TAINITEC WIRELESS SYSTEM.
+--------------------------------------------------------------------------------------------------------------------------------------------- 
+
+INSTRUCTIONS:
+
+1)CHECK AND CHOOSE BETWEEN 2 EEG AND 2 EMG CHANNELS, AND SAVE INTO .CSV FILE (MATLAB_FILES folder, Script: Taini_CheckChoose.m)
+
+1.a) To run a set of animals create a .csv file using the format attached as rat_day_index_CDKL5.csv (Note BL3 in this case are split in two 
+files that need to be merged, the script is set to do this automatically). By default columns M and O are set to "0" and can be automatically 
+filled by the script with the selected eeg and emg channel numbers.
+1.b) Change names for "rat", "day", "line", "pn", "p" variables (Note source .dat files are set as p '' line '' ratname), with 
+ratname = [line '_' rat]. (Example for file and Folder format for data: source_folder/CDKL5/CDKL5_1959/)
+1.c) Run the script.
+1.d) 2 options of EEG channels will appear along with a prompt window asking to choose (insert 1 or 2).
+1.e) 2 options of EMG channels will appear along with a prompt window asking to choose (insert 1 or 2).
+1.f) A .cvs file will be written containing the chosen EEG and EMG channels with the format [ratname '_' day '_Channels.csv'], 
+into a folder that can be specified in line 178 of the script.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2) OPTIONAL STEP: SWDs AUTOMATIC DETECTION 
+
+2.a) A prompt window will ask if you would like to run SWDs auto-detection scripts (TAINI_autodetect.m and cepstral_analysis.m plus additional 
+scripts included in MATLAB_FILES folder)
+2.b) After SWD analysis is done, a prompt window will ask you if you want to check the events: 
+ALWAYS ANSWER YES AND CHECK IF THE EVENTS SHOWN ARE SWD IN DEED.
+2.c) If SWDs are correctly detected, choose "YES" to save results, column L on rat_day_index_CDKL5.csv will be automatically filled with 1 if SWDs are found.
