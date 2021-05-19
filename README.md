@@ -10,6 +10,9 @@ AUTOMATIC SLEEP SCORING PIPELINE - Dr. Ingrid Buller &amp;  Dr. Alejandro Bassi 
 
 **_CDBS - SIDB - University of Edinburgh // ICBM - Faculty of Medicine - Universidad de Chile_**
 
+**------------------------------------------------------------------------------------------------------------------------------------------------------------------------**
+**------------------------------------------------------------------------------------------------------------------------------------------------------------------------**
+
 ### **STEP ONE: OPEN .DAT FILE AND CHOOSE CHANNELS FOR SLEEP ANALYSIS (FOR WIRELESS RECORDING OBTAINED THROUGH TAINI SYSTEM) - OPTIONS:**
 
 **_A) OPEN FULL .DAT FILE AND SELECT ONE EEG AND ONE EMG CHANNEL:_**
@@ -38,7 +41,11 @@ b.5) 2 options of EMG channels will appear along with a prompt window asking to 
 b.6) A .cvs file will be written containing the chosen EEG and EMG channels with the format [ratname '_' day '_Channels.csv'], into a folder
 that can be specified in line 178 of the script.
 
+**------------------------------------------------------------------------------------------------------------------------------------------------------------------------**
+**------------------------------------------------------------------------------------------------------------------------------------------------------------------------**
+
 ### **OPTIONAL STEP: SWDs AUTOMATIC DETECTION (MATLAB ONLY)**
+**- NOTE: THE SWDs ANALYSIS INCLUDED IN THIS FOLDER IS SET TO BE USED ONLY WITH .dat FILES OBTAINES BY TAINITEC WIRELESS SYSTEM. FOR SWDs AUTODETECTION ON OPEN EPHYS FILES CHECK ON https://github.com/Gonzalez-Sulser-Team/SWD-Automatic-Identification_**
 
 1) A prompt window will ask if you would like to run SWDs auto-detection scripts (**TAINI_autodetect.m** and **cepstral_analysis.m** plus additional
 scripts included in **MATLAB_FILES folder**)
@@ -47,6 +54,9 @@ scripts included in **MATLAB_FILES folder**)
 ARE SWD IN DEED._**
 
 3) If SWDs are correctly detected, choose "YES" to save results, column L on rat_day_index_CDKL5.csv will be automatically filled with 1 if SWDs are found.
+
+**------------------------------------------------------------------------------------------------------------------------------------------------------------------------**
+**------------------------------------------------------------------------------------------------------------------------------------------------------------------------**
 
 ### **STEP TWO: RUN AUTOMATIC SLEEP SCORER ON R STUDIO (**R_SleepAutoscorer_FILES folder**, script: Sleep_autoscore_Beta.R)**
 
