@@ -68,9 +68,9 @@ ARE SWD IN DEED._**
 
 **_@Gonzalez-Sulser-Team CDBS - SIDB - University of Edinburgh 2021_**
 
-_A) Paste all the files inside the **R_SleepAutoscorer_FILES folder (sleep_score_library.R , mgg.R , Sleep_autoscore_Beta.R)** into the source folder where you will keep your data (i.e "C:\Users\yourname\Documents\POSTDOC\ANALISYS\EEG RESULTS\Sleep_Results")_
+**_A) Paste all the files inside the R_SleepAutoscorer_FILES folder (sleep_score_library.R , mgg.R , Sleep_autoscore_Beta.R)** into the source folder where you will keep your data (i.e "C:\Users\yourname\Documents\POSTDOC\ANALISYS\EEG RESULTS\Sleep_Results")_
 
-_B) ONCE WHEN OPENING R-STUDIO FOR NEW SESSION:_
+**_B) ONCE WHEN OPENING R-STUDIO FOR NEW SESSION:_**
 
 b.1) When opening for the first time: Install all required packages from CRAN (**dplyr psych multitaper rgl ggplot2**)
 
@@ -100,7 +100,7 @@ source('~/POSTDOC/ANALISYS/EEG RESULTS/Sleep_Results/Sleep_autoscore_Beta.R') ##
 
 (Example for file and Folder format for data: source_folder/CDKL5/CDKL5_1959/)
 
-_C) RUN THE MAIN FUNCTION TO OBTAIN AUTOMATIC SLEEP SCORING AND POWER SPECTRUM BY STATE_
+**_C) RUN THE MAIN FUNCTION TO OBTAIN AUTOMATIC SLEEP SCORING AND POWER SPECTRUM BY STATE_**
 **sleep.autoscore()**
 
 _OR RUN THE FOLLOWING FUNCTIONS JUST TO OBTAIN AUTOMATIC SLEEP SCORING WITHOUT POWER SPECTRUM BY STATE_
@@ -109,7 +109,7 @@ _OR RUN THE FOLLOWING FUNCTIONS JUST TO OBTAIN AUTOMATIC SLEEP SCORING WITHOUT P
 
 **rat.correct()**
 
-_D) OUTPUTS:_ 
+**_D) OUTPUTS:_** 
 
 d.1) Line 178: .csv with sleep scoring only (0=WAKE, 1=NON REM, 2=REM, EPOCHS 5 SECS)
 
