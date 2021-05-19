@@ -6,4 +6,4 @@ a) chronux_2_11 package (downloadable at http://chronux.org/)
 b) The Signal Processing Toolbox (can be enabled on On the main command interface, you can use Add-Ons -> Get Add-Ons, and use the Add-On Explorer to find the Signal Processing Toolbox). Free for student/academic licence.
 c) All Matlab included toolboxes selected to be used (add to path full toolbox folder with subfolders).
 
-2) THE SWDs ANALYSIS INCLUDED IN THIS FOLDER IS SET TO BE USED ONLY WITH .dat FILES OBTAINES BY TAINITEC WIRELESS SYSTEM. FOR SWDs AUTODETECTION ON OPEN EPHYS FILES CHECK ON
+2) THE SWDs ANALYSIS INCLUDED IN THIS FOLDER IS SET TO BE USED ONLY WITH .dat FILES OBTAINES BY TAINITEC WIRELESS SYSTEM. FOR SWDs AUTODETECTION ON OPEN EPHYS FILES CHECK ON https://github.com/Gonzalez-Sulser-Team/SWD-Automatic-Identification
