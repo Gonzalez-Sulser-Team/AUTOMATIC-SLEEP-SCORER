@@ -1,0 +1,65 @@
+AUTOMATIC SLEEP-STATES SCORER FOR R-STUDIO 
+---------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------
+Original version by Dr. Alejandro Bassi and Dr. Javier Díaz in https://doi.org/10.3389/fncel.2017.00302 
+(Sleep & Chronobiology Lab - ICBM - Faculty of Medicine - Universidad de Chile)
+Ported to R by Dr. Alejandro Bassi (abassi@dcc.uchile.cl)
+Adapted by Dr. Ingrid Buller (ingrid.buller@ed.ac.uk) @Gonzalez-Sulser-Team CDBS - SIDB - University of Edinburgh 2021
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CONTEXT:
+- The script will allow you to obtain a .csv file with a vector of numbers corresponding to sleep states.
+- Each number corresponds to an epoch of 5 seconds classified as WAKEFULNESS = 0, NON-REM SLEEP = 1, REM SLEEP = 2.
+- For a recording of 24 hrs you will get 17280 classified epochs.
+- If the animal had been identified having SWDs (absence-like seizures), it will also produce a vector including SWDs epochs as = 4
+- Optionally - if running full command sleep.autoscore() - you will obtain the power spectrum per sleep state on a separated .csv file
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+WARNINGS:
+- Make sure data folders and names are correctly formatted.
+- The automatic scoring process only works for a full day of recording.
+- This particular version is set at a sampling rate of 250.4 Hz, to comply with specifications of data obtained through 
+TAINITEC WIRELESS SYSTEM.
+--------------------------------------------------------------------------------------------------------------------------------------------- 
+
+INSTRUCTIONS:
+A) Paste all the files inside the R_SleepAutoscorer_FILES (sleep_score_library.R , mgg.R , Sleep_autoscore_Beta.R) into the source folder 
+where you will keep your data (i.e "C:\Users\yourname\Documents\POSTDOC\ANALISYS\EEG RESULTS\Sleep_Results")
+
+B) ONCE WHEN OPENING R-STUDIO FOR NEW SESSION:
+b.1) When opening for the first time: Install all required packages from CRAN (dplyr psych multitaper rgl ggplot2)
+b.2) Set corresponding directories: line 21 SET SOURCE DIR FOR CODE AND LIBRARY, 42 (source dir for eeg and emg channels)
+b.3) Type in console:
+
+setwd("/Users/yourname/Documents/POSTDOC/ANALISYS/EEG RESULTS/Sleep_Results") ###Example source dir
+source("mgg.R")
+source("sleep_score_library.R")
+library(rgl)
+source('~/POSTDOC/ANALISYS/EEG RESULTS/Sleep_Results/Sleep_autoscore_Beta.R') #### example script source folder
+
+AND TYPE VARIABLES TO CHANGE FOR EACH RAT/DAY:
+
+rat_line<<-("CDKL5") ## CHANGE AND PASTE TO CONSOLE
+animal_id<<-("1959") ## CHANGE AND PASTE TO CONSOLE
+animal_day<<-("BL1") ## CHANGE AND PASTE TO CONSOLE
+seizures<<-0 ##RECORD WITH SEIZURES? 1=YES 0=NO
+
+(Example for file and Folder format for data: source_folder/CDKL5/CDKL5_1959/)
+
+C) RUN THE MAIN FUNCTION TO OBTAIN AUTOMATIC SLEEP SCORING AND POWER SPECTRUM BY STATE sleep.autoscore()
+
+OR RUN THE FOLLOWING FUNCTIONS JUST TO OBTAIN AUTOMATIC SLEEP SCORING WITHOUT POWER SPECTRUM BY STATE
+
+rat.get()
+rat.correct()
+
+D) OUTPUTS:
+d.1) Line 178: .csv with sleep scoring only (0=WAKE, 1=NON REM, 2=REM, EPOCHS 5 SECS)
+d.2) Line 186: .csv with sleep scoring and swd for coherence analysis (0=WAKE, 1=NON REM, 2=REM, 4=SWD, EPOCHS 5 SECS).
+d.3) Line 272: .csv with power spectrum by state - Column names: s_0=Wakefulness, s_1=Non-REM, s_2=REM (if SWD, s_4=SWD).
+d.4) 3D graph showing the initial distribution of the epochs in the axes: Theta power, EEG (-theta) power, and EMG power. 
+(Green = Wakefulness, Blue = Non-REM Sleep, Red = REM sleep, Black = epochs still to be classified by context)
+d.5) EEG spectrogram in 12 consecutive rows of 2 hours for the range 0.4-20 Hz (Blue to Yellow = low to high power)
+d.6) Distribution of states by hour of recording in epocs (one hour = 720 epochs of 5 secs). Green = Wakefulness, Blue = Non-REM Sleep, 
+Red = REM sleep.
